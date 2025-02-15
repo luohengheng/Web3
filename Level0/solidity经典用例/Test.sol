@@ -39,4 +39,10 @@ contract Test {
         bool res4 = uArr.isArrIncludeItem(1);
         return (res1, res3, res2, res4);
     }
+
+    function test2() public {
+        bytes memory b1 =  abi.encodeWithSignature("test1()");
+        bytes memory b2 =  abi.encodeWithSelector(bytes4(keccak256("test1()")));
+        address(this).call(b1);
+    }
 }
